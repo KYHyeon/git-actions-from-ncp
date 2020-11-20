@@ -20,7 +20,6 @@ jobs:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
       run: python3 download.py --access_key="$ACCESS_KEY" --secret_key="$SECRET_KEY"
     - uses: montudor/action-zip@v0.1.1
-      working-directory: ./BoostClusteringMaB
       with:
         args: unzip -qq Pods.zip -d Pods
     - name: ls
