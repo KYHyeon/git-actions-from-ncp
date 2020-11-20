@@ -17,3 +17,10 @@ jobs:
         ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
       run: python3 download.py --access_key="$ACCESS_KEY" --secret_key="$SECRET_KEY"
+    - name: Copy Pods to ProjectDirectory
+      run: mv Pods.zip ./BoostClusteringMaB
+    - name: Unzip Pods
+      working-directory: ./BoostClusteringMaB
+      run: |
+        unzip Pods.zip
+        ls
