@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./BoostClusteringMaB
     steps:
     - uses: actions/checkout@master
     - name: Install Dependencies
@@ -17,8 +19,6 @@ jobs:
         ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
       run: python3 download.py --access_key="$ACCESS_KEY" --secret_key="$SECRET_KEY"
-    - name: Copy Pods to ProjectDirectory
-      run: mv Pods.zip ./BoostClusteringMaB
     - uses: montudor/action-zip@v0.1.1
       working-directory: ./BoostClusteringMaB
       with:
