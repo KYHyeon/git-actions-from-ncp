@@ -22,7 +22,7 @@ jobs:
       working-directory: ./BoostClusteringMaB
     - uses: montudor/action-zip@v0.1.1
       with:
-        args: unzip -qq Pods.zip -d Pods
+        args: unzip -qq Pods -d Pods
     - name: ls
       run: ls
       working-directory: ./BoostClusteringMaB
