@@ -1,0 +1,17 @@
+name: Download a file from S3
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Download from NCP
+      env: 
+        ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      run: ./download.py --access_key="$ACCESS_KEY" --secret_key="$SECRET_KEY"
