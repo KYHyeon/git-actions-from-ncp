@@ -19,11 +19,10 @@ jobs:
       env: 
         ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
-      run: python3 download.py --access_key="$ACCESS_KEY" --secret_key="$SECRET_KEY"
+      run: |
+        python3 download.py --access_key="$ACCESS_KEY" --secret_key="$SECRET_KEY"
+        unzip Pods.zip
       working-directory: ./BoostClusteringMaB
-    - uses: montudor/action-zip@v0.1.1
-      with:
-        args: unzip -qq Pods -d Pods
     - name: ls
       run: ls
       working-directory: ./BoostClusteringMaB
