@@ -7,13 +7,14 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     env:
       working-directory: ./BoostClusteringMaB
     steps:
     - uses: actions/checkout@master
     - name: Install Dependencies
-      run: pip3 install boto3 
+      run: |
+        pip3 install boto3 
     - name: Download from NCP
       env: 
         ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
